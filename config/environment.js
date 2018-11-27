@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'nested-dropdown-menu',
+    podModulePrefix: 'nested-dropdown-menu/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
