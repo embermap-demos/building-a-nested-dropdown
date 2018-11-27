@@ -1,5 +1,45 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="m-4">
+  <DropdownList class='list-reset flex' as |List|>
+    <List.item class='relative p-4 bg-grey-light hover:bg-yellow cursor-pointer' as |Item|>
+      Menu A
 
-{{outlet}}
+      <Item.sublist class='list-reset absolute pin-l mt-4 bg-white shadow' as |List|>
+        <List.item class='p-4'>
+          Submenu A 1
+        </List.item>
+        <List.item class='p-4'>
+          Submenu A 2
+        </List.item>
+      </Item.sublist>
+    </List.item>
+
+    <List.item class='relative p-4 bg-grey-light hover:bg-yellow cursor-pointer'>
+      Menu B
+    </List.item>
+  </DropdownList>
+
+  {{!-- <ul class='list-reset flex'>
+    <li class='relative p-4 bg-grey-light hover:bg-yellow cursor-pointer'>
+      Menu item A
+
+      <ul class='list-reset absolute pin-l mt-4 bg-white shadow'>
+        <li class='p-4'>Subitem A 1</li>
+        <li class='p-4'>Subitem A 2</li>
+        <li class='p-4'>Subitem A 3</li>
+      </ul>
+    </li>
+
+    <li class='relative p-4 bg-grey-light hover:bg-yellow cursor-pointer'>
+      Menu item B
+
+      <ul class='list-reset absolute pin-l mt-4 bg-white shadow'>
+        <li class='p-4'>Subitem B 1</li>
+        <li class='p-4'>Subitem B 2</li>
+      </ul>
+    </li>
+
+    <li class='p-4 bg-grey-light hover:bg-yellow cursor-pointer'>
+      Menu item C
+    </li>
+  </ul> --}}
+</div>
