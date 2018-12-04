@@ -1,3 +1,7 @@
 {{yield (hash
-  item=(component 'dropdown-list-item')
+  item=(component 'dropdown-list-item'
+    onMouseEnter=(action 'setActiveItem')
+    onMouseLeave=(action 'clearActiveItem')
+    activeItem=activeItem
+  )
 )}}
