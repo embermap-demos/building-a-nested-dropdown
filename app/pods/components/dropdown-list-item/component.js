@@ -13,10 +13,12 @@ export default Component.extend({
   }),
 
   mouseEnter() {
+    console.log('mouseEnter');
     this.onMouseEnter(this);
   },
 
   mouseLeave() {
+    console.log('mouseLeave');
     this.onMouseLeave(this);
   }
 });
