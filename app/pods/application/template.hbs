@@ -1,16 +1,16 @@
 <div class="m-4">
   <DropdownList class='list-reset flex' as |List|>
-    <List.item class='w-64 p-4 bg-grey-light hover:bg-yellow cursor-pointer' as |Item|>
-      Menu A
+    <List.item class='w-64 p-4 bg-grey-light cursor-pointer' as |Item|>
+      Menu A {{if Item.isActive '(active)'}}
     </List.item>
 
     <List.item
       data-tether-id="menu-b"
-      class='w-64 p-4 bg-grey-light hover:bg-yellow cursor-pointer'
+      class='w-64 p-4 bg-grey-light cursor-pointer'
     as |Item|>
-      Menu B
+      Menu B {{if Item.isActive '(active)'}}
 
-      {{#if Item.isActive}}
+      {{!-- {{#if Item.isActive}}
         {{#modal-dialog
           tetherTarget='[data-tether-id="menu-b"]'
           targetAttachment='bottom left'
@@ -27,7 +27,7 @@
             </List.item>
           </Item.sublist>
         {{/modal-dialog}}
-      {{/if}}
+      {{/if}} --}}
     </List.item>
   </DropdownList>
 </div>
