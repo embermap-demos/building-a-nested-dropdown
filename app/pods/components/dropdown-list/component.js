@@ -11,7 +11,7 @@ export default Component.extend({
     this.activeItems = this.activeItems || [];
   },
 
-  updateActiveItem: task(function*(items) {
+  updateActiveItems: task(function*(items) {
     if (isEmpty(items)) {
       yield timeout(1000);
     }
@@ -20,13 +20,21 @@ export default Component.extend({
     console.log(this.activeItems.map(item => item.elementId));
   }).restartable(),
 
+  setActiveItems(...items) {
+    this.updateActiveItems.perform(items);
+  },
+
+  clearActiveItems() {
+    this.updateActiveItems.perform([]);
+  },
+
   actions: {
-    setActiveItem(item) {
-      this.updateActiveItem.perform([ item ]);
+    setActiveItems(...items) {
+      this.setActiveItems(...items);
     },
 
-    clearActiveItem() {
-      this.updateActiveItem.perform([]);
+    clearActiveItems() {
+      this.clearActiveItems();
     }
   }
 });

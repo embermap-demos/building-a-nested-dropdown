@@ -10,7 +10,7 @@
     as |Item|>
       Menu B {{if Item.isActive '(active)'}}
 
-      {{!-- {{#if Item.isActive}}
+      {{#if Item.isActive}}
         {{#modal-dialog
           tetherTarget='[data-tether-id="menu-b"]'
           targetAttachment='bottom left'
@@ -22,12 +22,24 @@
             <List.item class='p-4' as |Item|>
               Submenu 1 {{if Item.isActive '(active)'}}
             </List.item>
-            <List.item class='p-4'>
-              Submenu 2
+
+            <List.item class='p-4 relative' as |Item|>
+              Submenu 2 {{if Item.isActive '(active)'}}
+
+              {{#if Item.isActive}}
+                <Item.sublist class='absolute bg-white shadow' as |List|>
+                  <List.item class='p-2' as |Item|>
+                    Sub-submenu 1 {{if Item.isActive '(active)'}}
+                  </List.item>
+                  <List.item class='p-2'>
+                    Sub-submenu 2
+                  </List.item>
+                </Item.sublist>
+              {{/if}}
             </List.item>
           </Item.sublist>
         {{/modal-dialog}}
-      {{/if}} --}}
+      {{/if}}
     </List.item>
   </DropdownList>
 </div>

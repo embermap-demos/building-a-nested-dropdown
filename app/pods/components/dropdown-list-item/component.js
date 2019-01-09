@@ -10,18 +10,15 @@ export default Component.extend({
     this.activeItems = this.activeItems || [];
   },
 
-  onMouseEnter() {},
-  onMouseLeave() {},
-
   isActive: computed('activeItems.[]', function() {
     return this.activeItems[0] === this;
   }),
 
   mouseEnter() {
-    this.onMouseEnter(this);
+    this.setActiveItems(this);
   },
 
   mouseLeave() {
-    this.onMouseLeave(this);
+    this.clearActiveItems(this);
   }
 });
