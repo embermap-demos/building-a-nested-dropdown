@@ -1,17 +1,15 @@
 {{#if Item.isActive}}
 
   {{#liquid-tether
-    target=tetherTarget
-    attachment='top left'
-    targetAttachment='bottom left'}}
+    target=@tetherTarget
+    attachment=@attachment
+    targetAttachment=@targetAttachment
+    class='fading-menu'}}
 
     <@Item.sublist class='list-reset bg-white shadow-lg' as |List|>
-      <List.item class='w-64 p-4'>
-        Submenu 1
-      </List.item>
-      <List.item class='w-64 p-4'>
-        Submenu 2
-      </List.item>
+      {{yield (hash
+        item=(component 'navigation-submenu-item' List=List)
+      )}}
     </@Item.sublist>
 
   {{/liquid-tether}}

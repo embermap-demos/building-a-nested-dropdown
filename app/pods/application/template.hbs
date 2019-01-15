@@ -3,8 +3,29 @@
     Docs
 
     <Item.submenu as |Menu|>
-      <Menu.item>
+      <Menu.item as |Item|>
         Ember.js Guides
+
+        <Item.submenu as |Menu|>
+          <Menu.item>
+            Getting Started
+          </Menu.item>
+          <Menu.item as |Item|>
+            Tutorial
+
+            <Item.submenu as |Menu|>
+              <Menu.item>
+                Creating your app
+              </Menu.item>
+              <Menu.item>
+                Planning your app
+              </Menu.item>
+            </Item.submenu>
+          </Menu.item>
+          <Menu.item>
+            The Object Model
+          </Menu.item>
+        </Item.submenu>
       </Menu.item>
       <Menu.item>
         API Reference
@@ -14,27 +35,34 @@
       </Menu.item>
     </Item.submenu>
   </Menu.item>
+
   <Menu.item as |Item|>
     Releases
 
     <Item.submenu as |Menu|>
       <Menu.item>
-        Ember.js Guides
+        Channels
       </Menu.item>
       <Menu.item>
-        API Reference
+        Stable
       </Menu.item>
       <Menu.item>
-        CLI Guides
+        Beta
+      </Menu.item>
+      <Menu.item>
+        Canary
       </Menu.item>
     </Item.submenu>
   </Menu.item>
+
   <Menu.item>
     Blog
   </Menu.item>
+
   <Menu.item>
     Community
   </Menu.item>
+
   <Menu.item>
     About
   </Menu.item>
