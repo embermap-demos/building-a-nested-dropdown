@@ -1,0 +1,15 @@
+<@List.item as |Item|>
+  <div class='
+    w-64 p-4 cursor-pointer
+    {{if Item.isActive 'bg-blue text-white' 'bg-white'}}
+  '>
+    {{yield (hash
+      submenu=(component 'navigation-submenu'
+        Item=Item
+        tetherTarget=(concat '#' elementId)
+        attachment='top left'
+        targetAttachment='top right'
+      )
+    )}}
+  </div>
+</@List.item>
