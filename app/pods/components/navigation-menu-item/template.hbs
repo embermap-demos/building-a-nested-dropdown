@@ -1,0 +1,8 @@
+<Item as |Item|>
+  <div class='
+    w-64 p-4 cursor-pointer
+    {{if Item.isActive 'bg-blue text-white' 'bg-grey-light'}}
+  '>
+    {{yield}}
+  </div>
+</Item>

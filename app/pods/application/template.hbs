@@ -1,4 +1,34 @@
-<div class="m-4">
+<NavigationMenu as |Menu|>
+  <Menu.item as |Item|>
+    Docs
+
+    <Item.submenu as |Menu|>
+      <Menu.item>
+        Ember.js Guides
+      </Menu.item>
+      <Menu.item>
+        API Reference
+      </Menu.item>
+      <Menu.item>
+        CLI Guides
+      </Menu.item>
+    </Item.submenu>
+  </Menu.item>
+  <Menu.item>
+    Releases
+  </Menu.item>
+  <Menu.item>
+    Blog
+  </Menu.item>
+  <Menu.item>
+    Community
+  </Menu.item>
+  <Menu.item>
+    About
+  </Menu.item>
+</NavigationMenu>
+
+{{!-- <div class="m-4">
   <DropdownList class='list-reset flex' as |List|>
     <List.item class='w-64 p-4 bg-grey-light cursor-pointer' as |Item|>
       Menu A {{if Item.isActive '(active)'}}
@@ -42,4 +72,4 @@
       {{/if}}
     </List.item>
   </DropdownList>
-</div>
+</div> --}}
