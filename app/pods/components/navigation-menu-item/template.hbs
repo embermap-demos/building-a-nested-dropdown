@@ -1,8 +1,13 @@
-<Item as |Item|>
+<@Item as |Item|>
   <div class='
     w-64 p-4 cursor-pointer
     {{if Item.isActive 'bg-blue text-white' 'bg-grey-light'}}
   '>
-    {{yield}}
+    {{yield (hash
+      submenu=(component 'navigation-submenu'
+        Item=Item
+        tetherTarget=(concat '#' elementId)
+      )
+    )}}
   </div>
-</Item>
+</@Item>
