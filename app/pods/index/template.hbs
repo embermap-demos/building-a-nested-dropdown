@@ -1,0 +1,35 @@
+<DropdownList as |List|>
+  <ul class='list-reset flex'>
+    <List.item as |Item|>
+      <li class="
+        w-64 p-4 cursor-pointer
+        {{if Item.isActive 'bg-yellow' 'bg-grey-light'}}
+      ">
+        Menu A {{if Item.isActive '(active)'}}
+      </li>
+    </List.item>
+    <List.item as |Item|>
+      <li class='
+        w-64 p-4 bg-grey-light cursor-pointer
+        {{if Item.isActive 'bg-yellow' 'bg-grey-light'}}
+      '>
+        Menu B {{if Item.isActive '(active)'}}
+      </li>
+
+      {{#if Item.isActive}}
+        <Item.sublist as |List|>
+          <List.item>
+            <li>
+              subItem 1
+            </li>
+          </List.item>
+          <List.item>
+            <li>
+              subItem 2
+            </li>
+          </List.item>
+        </Item.sublist>
+      {{/if}}
+    </List.item>
+  </ul>
+</DropdownList>

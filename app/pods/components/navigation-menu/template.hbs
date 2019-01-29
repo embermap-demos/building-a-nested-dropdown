@@ -1,5 +1,7 @@
-<DropdownList class='list-reset flex' as |List|>
-  {{yield (hash
-    item=(component 'navigation-menu-item' List=List)
-  )}}
+<DropdownList as |List|>
+  <ul class='list-reset flex'>
+    {{yield (hash
+      item=(component 'navigation-menu-item' List=List)
+    )}}
+  </ul>
 </DropdownList>
