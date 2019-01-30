@@ -3,7 +3,7 @@ import { task, timeout } from 'ember-concurrency';
 import { isEmpty } from '@ember/utils';
 
 export default Component.extend({
-  tagName: 'ul',
+  tagName: '',
 
   init() {
     this._super(...arguments);
@@ -13,11 +13,10 @@ export default Component.extend({
 
   updateActiveItems: task(function*(items) {
     if (isEmpty(items)) {
-      yield timeout(1000);
+      yield timeout(200);
     }
 
     this.set('activeItems', items);
-    console.log(this.activeItems.map(item => item.elementId));
   }).restartable(),
 
   setActiveItems(...items) {
