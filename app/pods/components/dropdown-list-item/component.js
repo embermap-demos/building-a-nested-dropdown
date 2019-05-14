@@ -49,6 +49,6 @@ export default Component.extend({
   },
 
   handleMouseLeave() {
-    this.clearActiveItems(this);
+    this.clearActiveItems();
   }
 });

@@ -1,0 +1,209 @@
+<div class="p-4">
+  <h1>Nested routes</h1>
+
+  <div class="py-4"></div>
+
+  {{!-- {{#link-to 'nested-routes.first.second' 'a' '1'}}
+    A.1
+  {{/link-to}}
+  {{#link-to 'nested-routes.first.second' 'a' '2'}}
+    A.2
+  {{/link-to}}
+  {{#link-to 'nested-routes.first.second' 'a' '3'}}
+    A.3
+  {{/link-to}}
+
+  {{#link-to 'nested-routes.first.second' 'b' '1'}}
+    B.1
+  {{/link-to}}
+  {{#link-to 'nested-routes.first.second' 'b' '2'}}
+    B.2
+  {{/link-to}}
+  {{#link-to 'nested-routes.first.second' 'b' '3'}}
+    B.3
+  {{/link-to}}
+
+  {{#link-to 'nested-routes.first.second' 'c' '1'}}
+    C.1
+  {{/link-to}}
+  {{#link-to 'nested-routes.first.second' 'c' '2'}}
+    C.2
+  {{/link-to}}
+  {{#link-to 'nested-routes.first.second' 'c' '3'}}
+    C.3
+  {{/link-to}} --}}
+
+
+  {{!-- <DropdownList as |List|>
+    <ul class='list-reset flex'>
+
+      <List.item as |Item|>
+        <li class='
+          w-64 p-4 cursor-pointer
+          {{if Item.isActive 'bg-blue text-white' 'bg-grey-light'}}
+        '>
+          A
+
+          {{#if Item.isActive}}
+            <Item.sublist as |List|>
+              <List.item as |Item|>
+                <li>
+                  <a href={{href-to 'nested-routes.first.second' 'a' '1'}}
+                    class='
+                      block w-64 p-4 no-underline
+                      {{if Item.isActive 'bg-blue text-white' 'bg-grey-light text-grey-darkest'}}
+                    '
+                  >
+                    A 1
+                  </a>
+                </li>
+              </List.item>
+
+            </Item.sublist>
+          {{/if}}
+        </li>
+      </List.item>
+      <List.item>
+        <li>
+          <a href={{href-to 'nested-routes.first' 'b'}}>
+            B
+          </a>
+        </li>
+      </List.item>
+    </ul>
+  </DropdownList> --}}
+
+  {{!-- {{#navigation-menu as |menu|}}
+
+    {{#menu.item route='x' as |item|}}
+      Bar
+    {{/menu.item}}
+
+  {{/navigation-menu}} --}}
+
+  <NavigationMenu as |Menu|>
+    <Menu.item @route='nested-routes' as |Item|>
+      Home
+    </Menu.item>
+    <Menu.item as |Item|>
+      A
+
+      <Item.submenu as |Menu|>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'A' '1'}}>
+          1
+        </Menu.item>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'A' '2'}}>
+          2
+        </Menu.item>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'A' '3'}}>
+          3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+    <Menu.item as |Item|>
+      B
+
+      <Item.submenu as |Menu|>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'B' '1'}}>
+          1
+        </Menu.item>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'B' '2'}}>
+          2
+        </Menu.item>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'B' '3'}}>
+          3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+    <Menu.item as |Item|>
+      C
+
+      <Item.submenu as |Menu|>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'C' '1'}}>
+          1
+        </Menu.item>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'C' '2'}}>
+          2
+        </Menu.item>
+        <Menu.item @route='nested-routes.first.second' @model={{array 'C' '3'}}>
+          3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+  </NavigationMenu>
+
+  {{!-- <NavigationMenu as |Menu|>
+
+    <Menu.item as |Item|>
+      <a href={{href-to 'nested-routes'}} class='block no-underline text-grey-darkest'>
+        Home
+      </a>
+    </Menu.item>
+
+    <Menu.item as |Item|>
+      A
+
+      <Item.submenu as |Menu|>
+        <Menu.item>
+          1
+        </Menu.item>
+        <Menu.item>
+          2
+        </Menu.item>
+        <Menu.item>
+          3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+  </NavigationMenu> --}}
+
+  {{!-- <div class="m-4">
+    <DropdownList class='list-reset flex' as |List|>
+      <List.item class='w-64 p-4 bg-grey-light cursor-pointer' as |Item|>
+        Menu A {{if Item.isActive '(active)'}}
+      </List.item>
+
+      <List.item
+        data-tether-id="menu-b"
+        class='w-64 p-4 bg-grey-light cursor-pointer'
+      as |Item|>
+        Menu B {{if Item.isActive '(active)'}}
+
+        {{#if Item.isActive}}
+          {{#modal-dialog
+            tetherTarget='[data-tether-id="menu-b"]'
+            targetAttachment='bottom left'
+            attachment='top left'
+            animatable=true
+            hasOverlay=false
+          }}
+            <Item.sublist class='-mt-2 list-reset bg-white shadow' as |List|>
+              <List.item class='p-4' as |Item|>
+                Submenu 1 {{if Item.isActive '(active)'}}
+              </List.item>
+
+              <List.item class='p-4 relative' as |Item|>
+                Submenu 2 {{if Item.isActive '(active)'}}
+
+                {{#if Item.isActive}}
+                  <Item.sublist class='absolute bg-white shadow' as |List|>
+                    <List.item class='p-2' as |Item|>
+                      Sub-submenu 1 {{if Item.isActive '(active)'}}
+                    </List.item>
+                    <List.item class='p-2'>
+                      Sub-submenu 2
+                    </List.item>
+                  </Item.sublist>
+                {{/if}}
+              </List.item>
+            </Item.sublist>
+          {{/modal-dialog}}
+        {{/if}}
+      </List.item>
+    </DropdownList>
+  </div> --}}
+
+  <div class="mt-32 p-4">
+    {{outlet}}
+  </div>
+</div>

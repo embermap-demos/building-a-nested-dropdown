@@ -11,9 +11,9 @@ export default Component.extend({
     this.activeItems = this.activeItems || [];
   },
 
-  updateActiveItems: task(function*(items) {
+  updateActiveItems: task(function*(items, duration = 200) {
     if (isEmpty(items)) {
-      yield timeout(200);
+      yield timeout(duration);
     }
 
     this.set('activeItems', items);
@@ -23,8 +23,8 @@ export default Component.extend({
     this.updateActiveItems.perform(items);
   },
 
-  clearActiveItems() {
-    this.updateActiveItems.perform([]);
+  clearActiveItems(duration) {
+    this.updateActiveItems.perform([], duration);
   },
 
   actions: {
@@ -32,8 +32,8 @@ export default Component.extend({
       this.setActiveItems(...items);
     },
 
-    clearActiveItems() {
-      this.clearActiveItems();
+    clearActiveItems(duration) {
+      this.clearActiveItems(duration);
     }
   }
 });

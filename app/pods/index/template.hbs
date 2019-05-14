@@ -1,8 +1,31 @@
 <DropdownList as |List|>
   <ul class='list-reset flex'>
 
-    <List.item as |Item|><li class='w-64 p-4 {{if Item.isActive "bg-yellow"}}'>
+    <List.item as |Item|>
+      <li class='w-64 p-4 {{if Item.isActive "bg-yellow"}}'>
         Item 1
+
+        {{#if Item.isActive}}
+          <ul>
+            <Item.sublist as |List|>
+              <List.item>
+                <li>
+                  Item 1-A
+                </li>
+              </List.item>
+              <List.item>
+                <li>
+                  Item 1-B
+                </li>
+              </List.item>
+              <List.item>
+                <li>
+                  Item 1-C
+                </li>
+              </List.item>
+            </Item.sublist>
+          </ul>
+        {{/if}}
       </li>
     </List.item>
 

@@ -8,6 +8,12 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('nav-menu');
+
+  this.route('nested-routes', function() {
+    this.route('first', { path: '/:first' }, function() {
+      this.route('second', { path: '/:second' });
+    });
+  });
 });
 
 export default Router;
