@@ -1,15 +1,30 @@
 <@List.item as |Item|>
-  <li class='
-    w-64 p-4 cursor-pointer
-    {{if Item.isActive 'bg-blue text-white' 'bg-grey-light'}}
-  '>
-    {{yield (hash
-      submenu=(component 'navigation-submenu'
-        Item=Item
-        tetherTarget=(concat '#' elementId)
-        attachment='top left'
-        targetAttachment='bottom left'
-      )
-    )}}
-  </li>
+
+  {{#if @routeName}}
+    <li>
+      <a href={{url}} {{action 'transitionTo'}}
+        class='
+          block w-64 p-4 cursor-pointer no-underline
+          {{if Item.isActive 'bg-blue text-white' 'bg-grey-light text-grey-darkest'}}
+        '
+      >
+        {{yield}}
+      </a>
+    </li>
+
+  {{else}}
+    <li class='
+      w-64 p-4 cursor-pointer
+      {{if Item.isActive 'bg-blue text-white' 'bg-grey-light'}}
+    '>
+      {{yield (hash
+        submenu=(component 'navigation-submenu'
+          Item=Item
+          tetherTarget=(concat '#' elementId)
+          attachment='top left'
+          targetAttachment='bottom left'
+        )
+      )}}
+    </li>
+  {{/if}}
 </@List.item>

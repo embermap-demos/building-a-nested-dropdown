@@ -1,0 +1,62 @@
+<div class="p-4">
+  <h1>Nested routes</h1>
+
+  <NavigationMenu as |Menu|>
+    <Menu.item @routeName='nested-routes'>
+      Home
+    </Menu.item>
+
+    <Menu.item as |Item|>
+      A
+
+      <Item.submenu as |Menu|>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'a' '1'}} as |Item|>
+          A.1
+        </Menu.item>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'a' '2'}} as |Item|>
+          A.2
+        </Menu.item>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'a' '3'}} as |Item|>
+          A.3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+
+    <Menu.item as |Item|>
+      B
+
+      <Item.submenu as |Menu|>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'b' '1'}} as |Item|>
+          B.1
+        </Menu.item>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'b' '2'}} as |Item|>
+          B.2
+        </Menu.item>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'b' '3'}} as |Item|>
+          B.3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+
+    <Menu.item as |Item|>
+      C
+
+      <Item.submenu as |Menu|>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'c' '1'}} as |Item|>
+          C.1
+        </Menu.item>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'c' '2'}} as |Item|>
+          C.2
+        </Menu.item>
+        <Menu.item @routeName='nested-routes.first.second' @model={{array 'c' '3'}} as |Item|>
+          C.3
+        </Menu.item>
+      </Item.submenu>
+    </Menu.item>
+  </NavigationMenu>
+
+  <div class="mt-32 p-4">
+    <p>Nested routes:</p>
+    {{outlet}}
+  </div>
+</div>
